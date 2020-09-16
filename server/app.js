@@ -1,8 +1,16 @@
 const express = require("express")
 const app = express()
 const schema = require("./schema/schema")
+const cors = require("cors")
+const mongoDb = require("./config/mongoDB")
 const { graphqlHTTP } = require("express-graphql")
+require("dotenv").config()
+app.use(cors())
+app.use("/", (req, res) => {
+  res.json({ status: 200 })
+})
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }))
-app.listen(3000, () => {
+mongoDb()
+app.listen(8080, () => {
   console.log("Server now listening for request on port 3000")
 })
