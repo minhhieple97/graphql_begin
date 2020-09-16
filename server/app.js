@@ -6,10 +6,10 @@ const mongoDb = require("./config/mongoDB")
 const { graphqlHTTP } = require("express-graphql")
 require("dotenv").config()
 app.use(cors())
+app.use("/graphql", graphqlHTTP({ schema, graphiql: true }))
 app.use("/", (req, res) => {
   res.json({ status: 200 })
 })
-app.use("/graphql", graphqlHTTP({ schema, graphiql: true }))
 mongoDb()
 app.listen(8080, () => {
   console.log("Server now listening for request on port 3000")
