@@ -9,12 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.11.0",
     "graphql": "^15.3.0",
+    "i": "^0.3.6",
     "lodash": "^4.17.20",
-    "mongoose": "^5.10.5"
+    "mongoose": "^5.10.5",
+    "mongoose-autopopulate": "^0.12.2",
+    "npm": "^6.14.8"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

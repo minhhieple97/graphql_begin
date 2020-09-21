@@ -8,7 +8,7 @@ const {
   GraphQLNonNull,
 } = require("graphql")
 const Author = require("../models/author")
-const Book = require("../models/book")
+const Book = require("../models/event")
 const _ = require("lodash")
 const AuthorType = new GraphQLObjectType({
   name: "Author",
