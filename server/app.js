@@ -76,10 +76,14 @@ app.use(
 `),
     rootValue: {
       events: async () => {
-        const result = await Event.find().populate("creator")
-        return result.map((event)=>{
-          return {...event._doc}
-        })
+        // const result = await Event.find().populate("creator", "_id name")
+        const result = await Event.find()
+          .populate({
+            path: "creator",
+            select: "name -_id",
+          })
+          .exec()
+        return result
       },
       createEvent: async ({ eventInput }) => {
         try {
