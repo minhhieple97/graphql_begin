@@ -1,6 +1,6 @@
-const mongoose = require("mongoose")
-const autopopulate = require("mongoose-autopopulate")
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const autopopulate = require("mongoose-autopopulate");
+const Schema = mongoose.Schema;
 const eventSchema = new Schema({
   title: {
     type: String,
@@ -23,6 +23,6 @@ const eventSchema = new Schema({
     ref: "User",
     autopopulate: true,
   },
-})
-eventSchema.plugin(autopopulate)
-module.exports = mongoose.model("Event", eventSchema)
+});
+eventSchema.plugin(autopopulate);
+module.exports = mongoose.model("Event", eventSchema);
