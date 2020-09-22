@@ -1,21 +1,27 @@
 import React, { Component } from "react"
-import BookList from "./components/BookList"
-import ApolloClient from "apollo-boost"
-import { ApolloProvider } from "react-apollo"
-import AddBook from "./components/AddBook"
-const client = new ApolloClient({
-  uri: "http://localhost:8080/graphql",
-})
+import "./App.css"
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
+import AuthPage from "./pages/Auth"
+import EventsPage from "./pages/Events"
+import BookingsPage from "./pages/Bookings"
+import MainNavigation from "./components/Navigation/MainNavigation"
 export default class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <div id="main">
-          <h1>Sample GraphQL</h1>
-          <BookList></BookList>
-          <AddBook></AddBook>
-        </div>
-      </ApolloProvider>
+      <BrowserRouter>
+        <React.Fragment>
+          <MainNavigation />
+          <main className="main-content">
+            <Switch>
+              <Redirect from="/" to="/auth" exact></Redirect>
+              <Route path="/" component={null} exact></Route>
+              <Route path="/auth" component={AuthPage}></Route>
+              <Route path="/events" component={EventsPage}></Route>
+              <Route path="/bookings" component={BookingsPage}></Route>
+            </Switch>
+          </main>
+        </React.Fragment>
+      </BrowserRouter>
     )
   }
 }

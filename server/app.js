@@ -18,9 +18,10 @@ app.use(
     graphiql: true,
   })
 )
-app.use("/", (req, res) => {
-  res.json({ status: 200 })
+app.use("/", (err, req, res, next) => {
+  res.json({ status: 400, message: err.message })
 })
+
 connectMongodb()
   .then(() => {
     app.listen(process.env.PORT, () => {

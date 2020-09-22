@@ -20,8 +20,7 @@ module.exports = (req, res, next) => {
     req.userId = decodedToken.userId
     return next()
   } catch (error) {
-    console.log(error)
     req.isAuth = false
-    return next()
+    return next(error)
   }
 }
