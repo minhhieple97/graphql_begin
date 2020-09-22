@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+ const mongoose = require("mongoose");
 const autopopulate = require("mongoose-autopopulate");
 const Schema = mongoose.Schema;
 const eventSchema = new Schema({
