@@ -10,7 +10,6 @@ module.exports = {
     }))
   },
   createEvent: async ({ eventInput }, { isAuth, userId }) => {
-    console.log(isAuth)
     if (!isAuth) throw new Error("Unauthenticated!")
     try {
       const { title, description, price, date } = eventInput
